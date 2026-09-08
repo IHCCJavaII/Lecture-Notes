@@ -1,0 +1,2 @@
+mango,banana,apple,orange,watermelon
+strawberry dark chocolate,ube

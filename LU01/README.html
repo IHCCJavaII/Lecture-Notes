@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="lu01-javafx">LU01 JavaFx</h1>
+<p>Get started learning about the JavaFX library and how to use it by following along with this guide and reading the tutorial linked inside. We will be building some examples out in-class as well.</p>
+<ul>
+<li><a href="https://ihccjavaii.github.io/docs/general-topics/javafx.html">IHCC Java II JavaFX Guide</a></li>
+<li><a href="https://dev.java/learn/javafx/">Oracle JavaFX Tutorial</a></li>
+</ul>
+<h2 id="how-to-install-javafx">How to Install JavaFX</h2>
+<p>We will use Maven to create our JavaFX projects. Maven is a build automation tool used to manage dependencies and build Java projects. It simplifies the process of adding libraries like JavaFX to your project.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>Make sure you have Java Installed.</p>
+<pre class="hljs"><code><div># Install Java on Windows using winget
+winget install -e --id Oracle.JDK.<span class="hljs-number">26</span>
+# Check that Java is installed
+java -version
+</div></code></pre>
+<p>Maven isn't available via winget (don't you love windows?), so you will need to install <a href="https://chocolatey.org/install">chocolatey</a> first. Then you can install Maven via chocolatey:</p>
+<pre class="hljs"><code><div># Install Maven using chocolatey
+choco install maven
+</div></code></pre>
+<p>Or on Linux:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># replace apt with your package manager (e.g., dnf)</span>
+<span class="hljs-built_in">sudo</span> apt install java maven
+</div></code></pre>
+<p>Restart your command prompt window.
+After restart. In a <strong>new</strong> Command Prompt window, check that Maven is available:</p>
+<pre class="hljs"><code><div>mvn -v
+</div></code></pre>
+<h3 id="create-and-build-the-javafx-project">Create and Build the JavaFX Project</h3>
+<ol>
+<li><strong>Generate Project via Maven Archetype:</strong> Use OpenJFX Official Archetype.
+Run the following command in Command Prompt to generate a JavaFX project structure:</li>
+</ol>
+<p>Windows</p>
+<pre class="hljs"><code><div>mvn archetype:generate &quot;-DarchetypeGroupId=org.openjfx&quot; &quot;-DarchetypeArtifactId=javafx-archetype-simple&quot;
+</div></code></pre>
+<p>Linux</p>
+<pre class="hljs"><code><div>mvn archetype:generate -DarchetypeGroupId=org.openjfx -DarchetypeArtifactId=javafx-archetype-simple
+</div></code></pre>
+<ul>
+<li>Name the groupId, artifactId, and version as you like. Default version is 1.0-SNAPSHOT (just press enter).</li>
+</ul>
+<p>Now that your project is created, navigate to the project directory and run it.</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Change directory to your project folder</span>
+<span class="hljs-built_in">cd</span> my-javafx-app
+<span class="hljs-comment"># Run the project</span>
+mvn javafx:run
+<span class="hljs-comment"># run with clean  if you want to make sure everything is built from scratch</span>
+<span class="hljs-comment"># mvn clean javafx:run</span>
+</div></code></pre>
+<h2 id="create-console-app-via-maven">Create Console App via Maven</h2>
+<p><a href="https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html">Maven Getting Started Guide</a></p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Create a simple Java project</span>
+mvn archetype:generate -DgroupId=org.example -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.5 -DinteractiveMode=<span class="hljs-literal">false</span>
+<span class="hljs-comment"># change directory</span>
+<span class="hljs-built_in">cd</span> my-app
+<span class="hljs-comment"># Build and run the project</span>
+mvn compile <span class="hljs-built_in">exec</span>:java -Dexec.mainClass=<span class="hljs-string">&quot;org.example.App&quot;</span>
+</div></code></pre>
+<h2 id="getting-started-with-testfx">Getting Started with TestFX</h2>
+<p>Read through this guide to learn how to get started with TestFX, which allows you to unit test JavaFX projects</p>
+<ul>
+<li><a href="https://ihccjavaii.github.io/docs/junit/testfx.html">IHCC TestFX Guide</a></li>
+</ul>
+<h2 id="how-to-use-images-with-javafx">How to use images with JavaFX</h2>
+<p><a href="https://docs.oracle.com/javase/8/javafx/api/javafx/scene/image/ImageView.html">Read the official docs</a> to see an example of using the ImageView class to load Images onto your JavaFX pane.</p>
+<h2 id="pushing-large-files-to-github">Pushing large files to GitHub</h2>
+<p>This may help some of you if you're having trouble pushing your project because of the error &quot;remote end hung up unexpectedly&quot;.</p>
+<p>This happens when the amount of data you are trying to push is larger than your Git's default buffer size.</p>
+<p>You can increase your buffer size to fix this:</p>
+<pre class="hljs"><code><div>git config --global http.postBuffer 524288000
+</div></code></pre>
+<p>You may also run into an error if your images are larger than GitHub's supported push limit. If that's the case, you really need to compress your images because that's too large, yo.</p>
+
+</body>
+</html>
