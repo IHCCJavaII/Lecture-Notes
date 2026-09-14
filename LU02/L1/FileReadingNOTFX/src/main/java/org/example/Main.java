@@ -32,12 +32,11 @@ public class Main {
 
             smoothies.forEach(IO::println);
 
-            //Lets format our data
-
-
             scanner.close();
         } catch (FileNotFoundException e){
             IO.println("File not found");
+            // Turn on program
+            System.exit(1);
         }
 
     }

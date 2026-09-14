@@ -91,6 +91,7 @@ public class Main extends Application {
         TableColumn<Name, String> lastNameColumn = new TableColumn<>("Last Name");
         lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
 
+        // TODO change this to an integer.
         TableColumn<Name, String> ageColumn = new TableColumn<>("Age");
         ageColumn.setCellValueFactory(cellData -> cellData.getValue().ageProperty().asString());
 

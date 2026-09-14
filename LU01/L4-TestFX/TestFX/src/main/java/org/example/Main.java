@@ -30,6 +30,7 @@ public class Main extends Application {
         });
 
         ImageView burgerImage = new ImageView("deluxe-double.png");
+        burgerImage.setId("burger-image");
         burgerImage.setFitHeight(200);
         burgerImage.setPreserveRatio(true);
 
