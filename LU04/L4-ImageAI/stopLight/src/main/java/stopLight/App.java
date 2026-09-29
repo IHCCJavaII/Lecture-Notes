@@ -4,8 +4,6 @@ import java.io.File;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
@@ -27,6 +25,7 @@ public class App extends Application {
         imageView.setPreserveRatio(true);
 
         var AIOutput = new TextArea();
+        AIOutput.setWrapText(true);
         AIOutput.setPromptText("AI analysis will appear here...");
 
         Button uploadBtn = new Button("Upload Image");
@@ -37,15 +36,20 @@ public class App extends Application {
                     new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.webp"));
 
             selectedFile = fileChooser.showOpenDialog(stage);
-
             Image image = new Image(selectedFile.toURI().toString());
             imageView.setImage(image);
-
-            AIOutput.setText(AIHandler.analyzeImage(selectedFile.getAbsolutePath()));
-
         });
 
-        var vbox = new VBox(uploadBtn, imageView, AIOutput);
+        Button analyzeBtn = new Button("Analyze Image");
+        analyzeBtn.setOnAction(e -> {
+            try {
+                AIOutput.setText(AIHandler.analyzeImage(selectedFile.getAbsolutePath()));
+            } catch (Exception ex) {
+                AIOutput.setText("Error analyzing image: " + ex.getMessage());
+            }
+        });
+
+        var vbox = new VBox(uploadBtn, analyzeBtn, imageView, AIOutput);
 
         var scene = new Scene(vbox, 640, 480);
         stage.setScene(scene);
