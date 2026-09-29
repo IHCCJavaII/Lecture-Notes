@@ -4,7 +4,8 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
-public class AnimalNode extends StackPane {
+// TODO make this a button
+public abstract class AnimalNode extends StackPane {
     public AnimalNode(String name, String noise, String color) {
         Rectangle box = new Rectangle(100, 100);
         box.setStyle("-fx-fill: " + color);

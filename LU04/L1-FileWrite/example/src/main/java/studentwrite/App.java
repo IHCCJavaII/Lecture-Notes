@@ -66,28 +66,37 @@ public class App extends Application {
     }
 
     private HBox buildForm() {
-        TextField firstIn = new TextField(); firstIn.setPromptText("First Name");
-        TextField lastIn = new TextField(); lastIn.setPromptText("Last Name");
-        TextField gpaIn = new TextField(); gpaIn.setPromptText("GPA");
-        ComboBox<Major> majorIn = new ComboBox<>(FXCollections.observableArrayList(Major.values()));
+        TextField firstIn = new TextField();
+        firstIn.setPromptText("First Name");
+
+        TextField lastIn = new TextField();
+        lastIn.setPromptText("Last Name");
+
+        TextField gpaIn = new TextField();
+        gpaIn.setPromptText("GPA");
+
+        ComboBox<Major> majorIn = new ComboBox<>();
+        majorIn.getItems().addAll(Major.values());
         majorIn.setPromptText("Major");
 
         Button addButton = new Button("Add Student");
         addButton.setOnAction(e -> {
             // FLOW: Input -> DTO -> Model -> List
             StudentDTO dto = new StudentDTO(
-                firstIn.getText(),
-                lastIn.getText(),
-                Double.parseDouble(gpaIn.getText()),
-                majorIn.getValue()
-            );
+                    firstIn.getText(),
+                    lastIn.getText(),
+                    Double.parseDouble(gpaIn.getText()),
+                    majorIn.getValue());
             studentList.add(dto.toModel());
 
-            firstIn.clear(); lastIn.clear(); gpaIn.clear(); majorIn.setValue(null);
+            firstIn.clear();
+            lastIn.clear();
+            gpaIn.clear();
+            majorIn.setValue(null);
         });
 
         HBox form = new HBox(10, firstIn, lastIn, gpaIn, majorIn, addButton);
-        form.setPadding(new Insets(15));
+        form.setStyle("-fx-padding-right: 10px");
         return form;
     }
 
@@ -101,7 +110,7 @@ public class App extends Application {
                 while (scanner.hasNextLine()) {
                     String line = scanner.nextLine();
                     String[] p = line.split(",");
-                    
+
                     // FLOW: CSV -> DTO -> Model -> List
                     StudentDTO dto = new StudentDTO(p[0], p[1], Double.parseDouble(p[2]), Major.valueOf(p[3]));
                     studentList.add(dto.toModel());
