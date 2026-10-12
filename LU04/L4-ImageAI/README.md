@@ -6,11 +6,19 @@ Install the model.
 If you find a new model, you can swap it out.
 
 ```bash
+# Start ollama if it is not running
+docker run -d ollama
+# Go inside the container
 docker exec -it ollama bash
+# Download the model
 ollama pull llava-phi3
 ```
 
 ## Create JavaFX Project
+
+```bash
+mvn archetype:generate -DarchetypeGroupId=org.openjfx -DarchetypeArtifactId=javafx-archetype-simple
+```
 
 - Create a JavaFX project.
 - Add the Dependencies on the `pom.xml` file.

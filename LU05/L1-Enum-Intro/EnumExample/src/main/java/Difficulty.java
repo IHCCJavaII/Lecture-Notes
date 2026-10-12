@@ -1,11 +1,11 @@
 public enum Difficulty {
-    EASY("Recruit"),
-    NORMAL("Regular"),
-    HARD("Harneded");
+    EASY("Normal"),
+    NORMAL("Heroic"),
+    HARD("Legendary");
 
     final String displayName;
 
-    Difficulty(String displayNam){
+    Difficulty(String displayNam) {
         this.displayName = displayNam;
     }
 }

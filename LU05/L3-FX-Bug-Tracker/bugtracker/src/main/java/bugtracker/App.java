@@ -19,7 +19,7 @@ public class App extends Application {
     public void start(Stage stage) {
         stage.setTitle("Simple Bug Tracker");
 
-        //Create Form Components
+        // Create Form Components
         TextField titleField = new TextField();
         titleField.setPromptText("Bug Title");
 
@@ -32,7 +32,7 @@ public class App extends Application {
 
         Button addButton = new Button("Add Bug");
 
-        //Create the Table
+        // Create the Table
         TableView<Issue> table = new TableView<>();
         table.setItems(issueList);
 
@@ -55,7 +55,7 @@ public class App extends Application {
 
             if (title != null && !title.isEmpty() && priority != null) {
                 issueList.add(new Issue(title, desc, priority));
-                
+
                 // Clear inputs
                 titleField.clear();
                 descField.clear();
@@ -65,7 +65,6 @@ public class App extends Application {
 
         VBox form = new VBox(10, titleField, descField, priorityBox, addButton);
         VBox root = new VBox(10, form, table);
-
 
         Scene scene = new Scene(root, 600, 400);
         stage.setScene(scene);

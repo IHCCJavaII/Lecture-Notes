@@ -32,14 +32,4 @@ public class TransactionIO {
 
         return transactions;
     }
-
-    public static void save(Path file, List<Transaction> transactions) throws IOException {
-        var lines = new ArrayList<String>();
-
-        for (var transaction : transactions) {
-            lines.add(transaction.toCsvRow(transaction));
-        }
-
-        Files.write(file, lines);
-    }
 }

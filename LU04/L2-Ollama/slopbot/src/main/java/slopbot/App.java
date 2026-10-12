@@ -4,6 +4,7 @@ import java.time.Duration;
 
 import io.github.ollama4j.Ollama;
 import io.github.ollama4j.models.generate.OllamaGenerateRequest;
+import io.github.ollama4j.models.request.ThinkMode;
 import io.github.ollama4j.models.response.OllamaResult;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -32,6 +33,7 @@ public class App extends Application {
                     OllamaResult result = ollama.generate(
                             OllamaGenerateRequest.builder()
                                     .withModel(model)
+                                    .withThink(ThinkMode.DISABLED)
                                     .withPrompt(
                                             "Generate a small amount of Lorem Ipsum. Don't think about it, just do it. Don't include any other text, just the Lorem Ipsum.")
                                     .build(),

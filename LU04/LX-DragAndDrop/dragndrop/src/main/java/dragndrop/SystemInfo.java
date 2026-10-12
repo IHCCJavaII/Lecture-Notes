@@ -1,4 +1,4 @@
-package budgetAnalyzer;
+package dragndrop;
 
 public class SystemInfo {
 
