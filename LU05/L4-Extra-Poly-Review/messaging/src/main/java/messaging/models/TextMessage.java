@@ -10,11 +10,14 @@ public class TextMessage extends Message {
 
     @Override
     public String getType() {
-        return ;
+        // Return type of message as a string
+        return this.getType().toString();
     }
 
     @Override
     public String send() {
-        return "[TEXT] " + getSender() + " -> " + getRecipient() + ": " + text;
+        return "[" + getType() + "] " 
+            + getSender() + " to " + getRecipient() 
+            + ": " + text;
     }
 }

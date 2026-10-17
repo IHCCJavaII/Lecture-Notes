@@ -1,4 +1,4 @@
-# EXTRA LECTURE: Polymorphism Review
+# Polymorphism Review
 
 ```bash
 mvn archetype:generate -DarchetypeGroupId=org.openjfx -DarchetypeArtifactId=javafx-archetype-simple

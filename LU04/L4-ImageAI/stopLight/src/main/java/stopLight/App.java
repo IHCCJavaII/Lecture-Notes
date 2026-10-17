@@ -3,6 +3,7 @@ package stopLight;
 import java.io.File;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
@@ -42,8 +43,17 @@ public class App extends Application {
 
         Button analyzeBtn = new Button("Analyze Image");
         analyzeBtn.setOnAction(e -> {
+            AIOutput.setText("Analyzing image... Please wait.");
             try {
-                AIOutput.setText(AIHandler.analyzeImage(selectedFile.getAbsolutePath()));
+                // Start a new thread to perform the analysis to avoid blocking the UI
+                new Thread(() -> {
+                    try {
+                        String result = AIHandler.analyzeImage(selectedFile.getAbsolutePath());
+                        AIOutput.setText(result);
+                    } catch (Exception ex) {
+                        Platform.runLater(() -> AIOutput.setText("Error analyzing image: " + ex.getMessage()));
+                    }
+                }).start();
             } catch (Exception ex) {
                 AIOutput.setText("Error analyzing image: " + ex.getMessage());
             }

@@ -18,17 +18,16 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         List<Message> messages = List.of(
-            new TextMessage("Alice", "Bob", "Hey, are you free tonight?"),
-            new ImageMessage("Bob", "Alice", "photo.png"),
-            new TextMessage("Carol", "Dave", "Meeting at 3pm"),
-            new ImageMessage("Dave", "Carol", "diagram.jpg")
-        );
+                new TextMessage("Alice", "Bob", "Hey, are you free tonight?"),
+                new ImageMessage("Bob", "Alice", "photo.png"),
+                new TextMessage("Carol", "Dave", "Meeting at 3pm"),
+                new ImageMessage("Dave", "Carol", "diagram.jpg"));
 
         ListView<String> listView = new ListView<>();
-        for (Message m : messages) {
-            // Question: Which send() method is called here? How does Java know which one to call?
-            listView.getItems().add(m.send());
-        }
+
+        // Question: Which send() method is called here?
+        // How does Java know which one to call?
+        messages.forEach(item -> listView.getItems().add(item.send()));
 
         VBox root = new VBox(listView);
 
