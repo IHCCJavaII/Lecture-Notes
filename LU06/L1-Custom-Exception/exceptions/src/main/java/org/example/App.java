@@ -27,7 +27,7 @@ public class App {
             account.deposit(-50.00);
         } catch (InvalidAmountException e) {
             System.out.println("Caught InvalidAmountException: " + e.getMessage());
-        }catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Caught generic exception: " + e.getMessage());
         }
 
@@ -40,7 +40,7 @@ public class App {
             System.out.println("Caught InvalidAmountException: " + e.getMessage());
         } catch (InsufficientFundsException e) {
             System.out.println("Caught InsufficientFundsException: " + e.getMessage());
-        }catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Caught generic exception: " + e.getMessage());
         }
 
@@ -50,7 +50,7 @@ public class App {
             BankAccount account = new BankAccount("", 200.00);
         } catch (InvalidAmountException e) {
             System.out.println("Caught InvalidAmountException: " + e.getMessage());
-        }catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Caught generic exception: " + e.getMessage());
         }
     }
