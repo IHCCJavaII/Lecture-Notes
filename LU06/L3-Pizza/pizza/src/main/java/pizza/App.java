@@ -18,6 +18,8 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
 
+        allPizzas.setId("all-pizzas-combo-box");
+        
         Pizza userPizza = new Pizza();
 
         VBox form = createForm(userPizza);
